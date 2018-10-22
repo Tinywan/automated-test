@@ -75,7 +75,7 @@ print "title of current page is %s" % (driver.title)
 print "url of current page is %s" % (driver.current_url)
 ```
 
-## 处理原生的js alert confirm 以及prompt
+#### 处理原生的js alert confirm 以及prompt
 
 具体思路是使用switch_to.alert()方法定位到alert/confirm/prompt。然后使用text/accept/dismiss/send_keys按需进行操做 
 * text。返回alert/confirm/prompt中的文字信息
@@ -83,7 +83,9 @@ print "url of current page is %s" % (driver.current_url)
 * dismiss。点击取消按钮，如果有的话
 * send_keys。向prompt中输入文字
 
-# 安装PIL包
+## 自动登录安装列表 
+
+#### 安装PIL包
 
 ```
 下载地址：https://www.lfd.uci.edu/~gohlke/pythonlibs/#pillow
@@ -93,11 +95,11 @@ Processing d:\python2.7\scripts\pillow-5.3.0-cp27-cp27m-win_amd64.whl
 Installing collected packages: Pillow
 Successfully installed Pillow-5.3.0
 ```
-##tesseract-ocr　安装
+#### tesseract-ocr　安装
 
 https://github.com/tesseract-ocr/tesseract/wiki/4.0-with-LSTM#400-alpha-for-windows
 
-## pytesseract 安装
+#### pytesseract 安装
 
 ```
 pip install pytesseract
