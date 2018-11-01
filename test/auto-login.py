@@ -15,7 +15,7 @@ reload(sys)
 sys.setdefaultencoding('utf-8')
 # Change default encoding to utf8
 
-url = 'https://pay.hongnaga.com/admin/login'
+url = 'https://testpay.hongnaga.com/admin/login'
 screenImg = "D:/Git/pay-auto-test/images/11001.png"
 
 if 'HTTP_PROXY'in os.environ:
@@ -24,17 +24,16 @@ if 'HTTP_PROXY'in os.environ:
 dr = webdriver.Chrome()
 dr.maximize_window()
 dr.get(url)
-sleep(2)
 
 # account and password
 dr.find_element_by_name("username").clear()
-dr.find_element_by_name("username").send_keys('Tinywan')
+dr.find_element_by_name("username").send_keys('admin')
 dr.find_element_by_name("password").clear()
-dr.find_element_by_name("password").send_keys('******')
+dr.find_element_by_name("password").send_keys('admin')
 
 # 验证码处理
 imgsrc = dr.find_element_by_id("captcha_img").get_attribute("src")
-if re.match(r"https://pay.hongnaga.com/captcha.html?.*", imgsrc):
+if re.match(r"https://testpay.hongnaga.com/captcha.html?.*", imgsrc):
     print("Need Validate")
     # 浏览器页面截屏
     dr.get_screenshot_as_file(screenImg)
@@ -54,10 +53,15 @@ if re.match(r"https://pay.hongnaga.com/captcha.html?.*", imgsrc):
     img.save(screenImg)
     # # 再次读取识别验证码
     img = Image.open(screenImg)
+    sleep(1)
     code = pytesseract.image_to_string(img)
     #code= pytesser.image_file_to_string(screenImg)
-    dr.find_element_by_id("captcha").send_keys(code.strip())
+    dr.find_element_by_name("captcha").clear()
+    dr.find_element_by_name("captcha").send_keys(code.strip().replace(' ',''))
     print(code.strip())
+    sleep(1)
 else:
     print("Not Need Validate")
 dr.find_element_by_id("sub").click()
+sleep(10)
+dr.quit()
