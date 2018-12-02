@@ -1,5 +1,4 @@
-#!user/bin/python
-# coding:utf-8
+#!/usr/bin/python3
 
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
@@ -10,13 +9,10 @@ import sys
 import io
 from PIL import Image, ImageEnhance
 import pytesseract
-
-reload(sys)
-sys.setdefaultencoding('utf-8')
-# Change default encoding to utf8
+from imp import reload
 
 url = 'https://testpay.hongnaga.com/admin/login'
-screenImg = "D:/Git/pay-auto-test/images/11001.png"
+screenImg = "D:/Git/automated-test/images/11001.png"
 
 if 'HTTP_PROXY'in os.environ:
     del os.environ['HTTP_PROXY']
@@ -29,7 +25,7 @@ dr.get(url)
 dr.find_element_by_name("username").clear()
 dr.find_element_by_name("username").send_keys('admin')
 dr.find_element_by_name("password").clear()
-dr.find_element_by_name("password").send_keys('admin')
+dr.find_element_by_name("password").send_keys('chilong112233')
 
 # 验证码处理
 imgsrc = dr.find_element_by_id("captcha_img").get_attribute("src")
@@ -57,7 +53,7 @@ if re.match(r"https://testpay.hongnaga.com/captcha.html?.*", imgsrc):
     code = pytesseract.image_to_string(img)
     #code= pytesser.image_file_to_string(screenImg)
     dr.find_element_by_name("captcha").clear()
-    dr.find_element_by_name("captcha").send_keys(code.strip().replace(' ',''))
+    dr.find_element_by_name("captcha").send_keys(code.strip().replace(' ', ''))
     print(code.strip())
     sleep(1)
 else:

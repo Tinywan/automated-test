@@ -9,8 +9,12 @@
 |v2.40|v66-68|
 
 
-## 准备工作
+## 准备
 
+#### 环境
+```
+python > 3.5
+```
 #### 升级 `pip` 包管理工具  
 
 ```python
@@ -22,6 +26,18 @@ python -m pip install --upgrade pip
 
 ```python
 pip install selenium
+```
+
+#### 安装 PyMySQL（非必须）
+
+```python
+python -m pip install PyMySQL
+```
+
+#### 安装 remi（非必须）
+
+```python
+pip install remi
 ```
 
 #### 启动浏览器

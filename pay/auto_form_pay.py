@@ -1,15 +1,14 @@
-#!user/bin/python
-# coding:utf-8
+#!/usr/bin/python3
 from selenium import webdriver
 import time
 from selenium.webdriver.support.ui import Select
+
+driver_path = ".\chromedriver.exe"
 # 支付demo界面
 for i in range(1, 100):
-    print i
-    driver = webdriver.Chrome()
+    print(i)
+    driver = webdriver.Chrome(executable_path=driver_path)
     driver.get('https://testpay.hongnaga.com/?debug=true')
-    h = driver.current_window_handle
-    print h
 
     # driver.maximize_window()
     a = driver.switch_to.alert

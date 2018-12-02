@@ -1,5 +1,4 @@
-#!user/bin/python
-# coding:utf-8
+#!/usr/bin/python3
 
 from selenium import webdriver
 from selenium.webdriver.support.ui import Select
@@ -19,7 +18,7 @@ driver = webdriver.Chrome()
 # -------restart open
 time.sleep(3)
 url = 'https://pay.hongnaga.com/?debug=true'
-print "now access %s" % (url)
+print("now access %s" % (url))
 driver.get(url)
 
 # 使用switch_to.alert()方法定位到 alert/confirm/prompt
@@ -28,8 +27,8 @@ layer.send_keys('112233')
 # accept。点击确认按钮
 layer.accept()
 
-print "title of current page is %s" % (driver.title)
-print "url of current page is %s" % (driver.current_url)
+print("title of current page is %s" % (driver.title))
+print("url of current page is %s" % (driver.current_url))
 # time.sleep(2)
 
 # 下拉框选择

@@ -1,19 +1,18 @@
-#!user/bin/python
-# coding:utf-8
+#!/usr/bin/python3
 import pymysql.cursors
 
 # Connect to the database
-connection = pymysql.connect(host='cpaytest.tinywan.com',
+connection = pymysql.connect(host='127.0.0.1',
                              user='root',
-                             password='123456',
-                             db='cpay',
+                             password='root',
+                             db='tpay',
                              charset='utf8mb4',
                              cursorclass=pymysql.cursors.DictCursor)
 
 try:
     with connection.cursor() as cursor:
         # Read a single record
-        sql = "SELECT * FROM cl_merchant_qrcode WHERE mch_id=1001"
+        sql = "SELECT * FROM pay_task WHERE id=59"
         cursor.execute(sql)
         result = cursor.fetchall()
         print(result)

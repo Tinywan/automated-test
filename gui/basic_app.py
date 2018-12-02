@@ -1,5 +1,4 @@
-#!user/bin/python
-# coding:utf-8
+#!/usr/bin/python3
 
 import remi.gui as gui
 from remi import start, App
