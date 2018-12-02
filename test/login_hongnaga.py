@@ -25,7 +25,7 @@ dr.get(url)
 dr.find_element_by_name("username").clear()
 dr.find_element_by_name("username").send_keys('admin')
 dr.find_element_by_name("password").clear()
-dr.find_element_by_name("password").send_keys('chilong112233')
+dr.find_element_by_name("password").send_keys('12233')
 
 # 验证码处理
 imgsrc = dr.find_element_by_id("captcha_img").get_attribute("src")
