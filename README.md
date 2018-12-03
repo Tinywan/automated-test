@@ -123,6 +123,25 @@ pip install pytesseract
 
 [https://github.com/dddomodossola/remi](https://github.com/dddomodossola/remi) 
 
+#### 基础语法
+* List（列表）
+  * 列表是写在方括号 [] 之间、用逗号分隔开的元素列表。  
+  * 类型可以不相同，它支持数字，字符串甚至可以包含列表（所谓嵌套）  
+  * 和字符串一样，列表同样可以被索引和截取，列表被截取后返回一个包含所需元素的新列表。  
+  * 索引值以 0 为开始值，-1 为从末尾的开始位置。  
+  * List中的元素是可以改变的  
+* Tuple（元组））
+  * 元组的元素不能修改。元组写在小括号 () 里，元素之间用逗号隔开。  
+  * 和字符串一样，列表同样可以被索引和截取，列表被截取后返回一个包含所需元素的新列表。  
+  * 索引值以 0 为开始值，-1 为从末尾的开始位置。  
+  * List中的元素是可以改变的  
+* is 用于判断两个变量引用对象是否为同一个， == 用于判断引用变量的值是否相等。
+
+* 类型区别
+    * 列表：清单可重复，类型可不同 list，例如：`['10','15','200']`
+    * 元组: 类似列表不可修改类型  tuple，例如：`('10','15','200')`
+    * 集合：就是我们数学学的集合应用是去重 set，例如：`{'apple', 'orange', 'apple', 'pear', 'orange', 'banana'}`
+    * 字典：字典存储键值对数据价值是查询，通过键，查找值 dict，例如：`{"name":"Tinywan","age":24,"schoole":"QH"}`
 #### HELP
 
 * [https://github.com/easonhan007/webdriver_guide](https://github.com/easonhan007/webdriver_guide)   
