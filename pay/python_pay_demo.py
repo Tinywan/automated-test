@@ -11,7 +11,7 @@ import time
 import json
 from urllib import request, parse
 from hashlib import md5
-from selenium import webdriver
+# from selenium import webdriver
 
 class PayDemo:
     # 网关地址
@@ -106,6 +106,6 @@ if not dict_data['success']:
     exit("接口请求失败，错误消息："+dict_data['message'])
 
 # 打开支付页面
-drive = webdriver.Chrome()
-drive.get(dict_data['data']['pay_url'])
+# drive = webdriver.Chrome()
+# drive.get(dict_data['data']['pay_url'])
 
