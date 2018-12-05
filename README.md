@@ -142,6 +142,26 @@ pip install pytesseract
     * 元组: 类似列表不可修改类型  tuple，例如：`('10','15','200')`
     * 集合：就是我们数学学的集合应用是去重 set，例如：`{'apple', 'orange', 'apple', 'pear', 'orange', 'banana'}`
     * 字典：字典存储键值对数据价值是查询，通过键，查找值 dict，例如：`{"name":"Tinywan","age":24,"schoole":"QH"}`
+* 字符串与列表的相互转换
+    * 字符串转列表
+        ```
+        str1 = "hi hello world"
+        print(str1.split(" ")) # 输出：['hi', 'hello', 'world']
+        ```
+    * 列表转字符串
+        ```
+        l = ["hi","hello","world"]
+        print(" ".join(l)) # 输出： hi hello world
+        ```        
+```
+TypeError: Unicode-objects must be encoded before hashing
+```
+> str.encode("utf-8")
+
+```
+UnboundLocalError: local variable 'params_str' referenced before assignment
+```
+> 本地变量xxx引用前没定义,在于python没有变量的声明 , 所以它通过一个简单的规则找出变量的范围 ：如果有一个函数内部的变量赋值 ，该变量被认为是本地的，所以如果有修改变量的值就会变成局部变量。
 #### HELP
 
 * [https://github.com/easonhan007/webdriver_guide](https://github.com/easonhan007/webdriver_guide)   
