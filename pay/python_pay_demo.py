@@ -40,6 +40,7 @@ class PayDemo:
 
         data['sign'] = sign
         b_data = parse.urlencode(data).encode('utf-8')
+        print(b_data)
         res = self.curl_post(self._gateway_url, b_data, header)
         return json.loads(res)  # return 将json对象转换为python字典
 
@@ -48,23 +49,28 @@ class PayDemo:
         if 'sign' in param:
             del param['sign']
 
+        print("字典数据：\r\n")
+        print(param)
         tmp_list = []
         sort_keys = sorted(param)  # 对keys 排序
         for k in sort_keys:
             tmp_list.append("%s=%s" % (k, param[k]))
+
+        print("For befroe list \r\n")    
+        print(tmp_list)    
         # 列表转换为字符串同时拼接key
         sign_str = "&".join(tmp_list)+"&key="+self.__mch_key
-        # print("Sign-Str " + sign_str)
+        print("Sign-Str " + sign_str)
         sign_md5 = md5(sign_str.encode('utf-8')).hexdigest()
-        # print("Sign " + sign_md5)
+        print("Sign " + sign_md5)
         return sign_md5
 
     # Get 请求
-    def curl_get(self, url: str) -> str:
-        request_obj = request.Request(url)
-        response_obj = request.urlopen(request_obj)
-        html_code = response_obj.read().decode('utf-8')
-        return html_code
+    # def curl_get(self, url: str) -> str:
+    #     request_obj = request.Request(url)
+    #     response_obj = request.urlopen(request_obj)
+    #     html_code = response_obj.read().decode('utf-8')
+    #     return html_code
 
     # POST 请求
     def curl_post(self, url: str, data: dict, header={})->dict:
