@@ -27,7 +27,7 @@ class PayDemo:
     }
 
     # 支付请求
-    def request(self, method, content, header={}):
+    def request(self, method: str, content: str, header={}) -> dict:
         data = {
             'method': method,
             'version': '1.0',
@@ -45,7 +45,7 @@ class PayDemo:
         return json.loads(res)  # return 将json对象转换为python字典
 
     # 签名
-    def __sign(self, param):
+    def __sign(self, param: list) -> str:
         if 'sign' in param:
             del param['sign']
 
@@ -61,14 +61,14 @@ class PayDemo:
         return sign_md5
 
     # Get 请求
-    def curl_get(self, url):
+    def curl_get(self, url: str) -> str:
         request_obj = request.Request(url)
         response_obj = request.urlopen(request_obj)
         html_code = response_obj.read().decode('utf-8')
         return html_code
 
     # POST 请求
-    def curl_post(self, url, data, header={}):
+    def curl_post(self, url: str, data: dict, header={})->dict:
         if header:
             self.headers = header
         print(self.headers)

@@ -152,7 +152,30 @@ pip install pytesseract
         ```
         l = ["hi","hello","world"]
         print(" ".join(l)) # 输出： hi hello world
-        ```        
+        ``` 
+* 类 
+    * 属性  
+      尽量把需要用户传入的属性作为实例属性，而把同类都一样的属性作为类属性。实例属性在每创造一个实例时都会初始化一遍，不同的实例的实例属性可能不同，不同实例的类属性都相同。从而减少内存。
+        * 实例属性 ：最好在__init__(self,...)中初始化，内部调用时都需要加上self. 
+        * 类属性：在__init__()外初始化。在内部用classname.类属性名调用，外部既可以用classname.类属性名又可以用instancename.类属性名来调用    
+        * 私有属性
+          * 单下划线_开头：只是告诉别人这是私有属性，外部依然可以访问更改   
+          * 双下划线__开头：外部不可通过instancename.propertyname来访问或者更改      
+          * 实际将其转化为了_classname__propertyname      
+    * 方法    
+      尽量把需要用户传入的属性作为实例属  
+        * 普通类方法 ：外部用实例调用  
+            ```
+            def fun_name(self,...):
+                pass
+            ```
+        * 静态方法：`@staticmethod`。不能访问实例属性。参数不能传入self。与类相关但是不依赖类与实例的方法
+        * 类方法：`@classmethod` 
+          * 不能访问实例属性。 参数必须传入cls
+          * 必须传入cls参数（即代表了此类对象-----区别------self代表实例对象），并且用此来调用类属性：cls.类属性名  
+          * 静态方法与类方法都可以通过类或者实例来调用。其两个的特点都是不能够调用实例属性  
+
+#### 错误信息         
 ```
 TypeError: Unicode-objects must be encoded before hashing
 ```

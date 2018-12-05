@@ -53,6 +53,8 @@ class Site:
     def foo(self):            # 公共方法
         print('这是公共方法')
         self.__foo()
+
+    def print4(paraTes)    
  
 x = Site('菜鸟教程', 'www.runoob.com')
 x.who()        # 正常输出
