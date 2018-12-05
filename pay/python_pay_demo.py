@@ -13,13 +13,21 @@ from urllib import request, parse
 from hashlib import md5
 from selenium import webdriver
 
+
 class PayDemo:
-    gateway_url = 'https://pay.hongnaga.com/api/gateway'
+    # 网关地址
+    _gateway_url = 'https://pay.hongnaga.com/api/gateway'
+    # 商户号
     mch_id = '12001'
-    mch_key = "0d8cee92eed880b379fde0b78cbdc173"
+    # 商户秘钥
+    __mch_key = "0d8cee92eed880b379fde0b78cbdc173"
+    # 默认请求头
+    headers = {
+        'Accept': 'application/json'
+    }
 
     # 支付请求
-    def request(self, method, content):
+    def request(self, method, content, header={}):
         data = {
             'method': method,
             'version': '1.0',
@@ -33,7 +41,7 @@ class PayDemo:
 
         data['sign'] = sign
         b_data = parse.urlencode(data).encode('utf-8')
-        res = self.curl_post(self.gateway_url, b_data)
+        res = self.curl_post(self._gateway_url, b_data, header)
         return json.loads(res)  # return 将json对象转换为python字典
 
     # 签名
@@ -45,8 +53,8 @@ class PayDemo:
         sort_keys = sorted(param)  # 对keys 排序
         for k in sort_keys:
             tmp_list.append("%s=%s" % (k, param[k]))
-        # 拼接key
-        sign_str = "&".join(tmp_list)+"&key="+self.mch_key  
+        # 列表转换为字符串同时拼接key
+        sign_str = "&".join(tmp_list)+"&key="+self.__mch_key
         # print("Sign-Str " + sign_str)
         sign_md5 = md5(sign_str.encode('utf-8')).hexdigest()
         # print("Sign " + sign_md5)
@@ -60,19 +68,26 @@ class PayDemo:
         return html_code
 
     # POST 请求
-    def curl_post(self, url, data, headers={}):
-        request_obj = request.Request(url, data, headers)
+    def curl_post(self, url, data, header={}):
+        if header:
+            self.headers = header
+        print(self.headers)
+        request_obj = request.Request(url, data, self.headers)
         response_obj = request.urlopen(request_obj)
         html_code = response_obj.read().decode('utf-8')
         return html_code
 
 
 # 请求配置参数
-method = "shop.payment.aliWap"
+headers = {
+    'Accept': 'application/json',
+    'Connection': 'Keep-Alive'
+}
+method = "shop.payment.aliH5"
 pay = PayDemo()
 content = {
-    'total_fee': '1',
-    'goods': 'H5-test',
+    'total_fee': '10',
+    'goods': '支付宝-H5',
     'order_sn': int(time.time()),
     'client': 'web',
     'notify_url': 'http://www.baidu.com/notify_url',
