@@ -13,7 +13,6 @@ from urllib import request, parse
 from hashlib import md5
 from selenium import webdriver
 
-
 class PayDemo:
     # 网关地址
     _gateway_url = 'https://pay.hongnaga.com/api/gateway'
@@ -103,3 +102,4 @@ if not dict_data['success']:
 # 打开支付页面
 drive = webdriver.Chrome()
 drive.get(dict_data['data']['pay_url'])
+
