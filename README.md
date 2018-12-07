@@ -123,7 +123,14 @@ pip install pytesseract
 
 [https://github.com/dddomodossola/remi](https://github.com/dddomodossola/remi) 
 
-#### 基础语法
+## 功能
+* 日志系统使用 
+    ```
+    from log import logger
+    x = logger.logger()
+    x.error("这是一个 error 级别的问题！")
+    ```
+## 基础语法
 * List（列表）
   * 列表是写在方括号 [] 之间、用逗号分隔开的元素列表。  
   * 类型可以不相同，它支持数字，字符串甚至可以包含列表（所谓嵌套）  
@@ -175,7 +182,21 @@ pip install pytesseract
           * 必须传入cls参数（即代表了此类对象-----区别------self代表实例对象），并且用此来调用类属性：cls.类属性名  
           * 静态方法与类方法都可以通过类或者实例来调用。其两个的特点都是不能够调用实例属性  
 
-#### 错误信息         
+## 类库
+* BeautifulSoup         
+```python
+pip install beautifulsoup4 
+
+# 安装解析器
+pip install lxml
+pip install html5lib
+```
+
+##  [Scrapy](https://github.com/scrapy/scrapy)
+爬取网站数据、提取结构性数据而编写的应用框架
+![articlex](./images/8c591d54457bb033812a2b0364011e9c_articlex.png)
+
+## 错误信息         
 ```
 TypeError: Unicode-objects must be encoded before hashing
 ```
@@ -185,6 +206,22 @@ TypeError: Unicode-objects must be encoded before hashing
 UnboundLocalError: local variable 'params_str' referenced before assignment
 ```
 > 本地变量xxx引用前没定义,在于python没有变量的声明 , 所以它通过一个简单的规则找出变量的范围 ：如果有一个函数内部的变量赋值 ，该变量被认为是本地的，所以如果有修改变量的值就会变成局部变量。
+
+在windows下，在dos中运行pip install Scrapy报错：
+```
+error: Microsoft Visual C++ 14.0 is required. Get it with "Microsoft Visual C++ Build Tools"
+```
+解决方案 : 
+* [http://www.lfd.uci.edu/~gohlke/pythonlibs/#twisted](http://www.lfd.uci.edu/~gohlke/pythonlibs/#twisted) 下载twisted对应版本的whl文件 
+* 这里下载的为：`Twisted-18.9.0-cp37-cp37m-win_amd64.whl`,复制到`D:\python3.7\Scripts`目录中
+* cp后面是python版本,运行命令：`pip install D:\python3.7\Scripts\Twisted-18.9.0-cp37-cp37m-win_amd64.whl`
+* 安装完成后，再次运行：`pip install Scrapy`
+
+错误：`No matching distribution found for win32api`
+```
+pip install pypiwin32
+```
+
 #### HELP
 
 * [https://github.com/easonhan007/webdriver_guide](https://github.com/easonhan007/webdriver_guide)   

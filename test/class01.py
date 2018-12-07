@@ -59,3 +59,4 @@ class Site:
 x = Site('菜鸟教程', 'www.runoob.com')
 x.who()        # 正常输出
 x.foo()        # 正常输出
+

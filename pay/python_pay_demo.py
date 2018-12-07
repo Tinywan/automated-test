@@ -39,8 +39,9 @@ class PayDemo:
             return "签名失败"
 
         data['sign'] = sign
+        # urlencode 将字典转换为url参数
         b_data = parse.urlencode(data).encode('utf-8')
-        print(b_data)
+        # print(b_data)
         res = self.curl_post(self._gateway_url, b_data, header)
         return json.loads(res)  # return 将json对象转换为python字典
 
@@ -56,13 +57,11 @@ class PayDemo:
         for k in sort_keys:
             tmp_list.append("%s=%s" % (k, param[k]))
 
-        print("For befroe list \r\n")    
-        print(tmp_list)    
         # 列表转换为字符串同时拼接key
         sign_str = "&".join(tmp_list)+"&key="+self.__mch_key
-        print("Sign-Str " + sign_str)
+        # print("Sign-Str " + sign_str)
         sign_md5 = md5(sign_str.encode('utf-8')).hexdigest()
-        print("Sign " + sign_md5)
+        # print("Sign " + sign_md5)
         return sign_md5
 
     # Get 请求
@@ -76,11 +75,13 @@ class PayDemo:
     def curl_post(self, url: str, data: dict, header={})->dict:
         if header:
             self.headers = header
-        print(self.headers)
         request_obj = request.Request(url, data, self.headers)
         response_obj = request.urlopen(request_obj)
-        html_code = response_obj.read().decode('utf-8')
-        return html_code
+        content = response_obj.read() # 此时为bytes类型
+        print(type(content)) # <class 'bytes'>
+        boby_content = content.decode('utf-8') # 需要进行类型转换才能正常显示在python中
+        print(type(boby_content)) # 返回解码后的类型，此时为str类型。<class 'str'>
+        return boby_content
 
 
 # 请求配置参数
