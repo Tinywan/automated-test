@@ -222,7 +222,36 @@ error: Microsoft Visual C++ 14.0 is required. Get it with "Microsoft Visual C++ 
 pip install pypiwin32
 ```
 
+```
+ModuleNotFoundError: No module named 'win32api'
+```
+> 注意：一定要下载和自己版本匹配的，否则没法安装的。下载：[https://github.com/mhammond/pywin32/releases](https://github.com/mhammond/pywin32/releases)
+
+
+```
+[scrapy.spidermiddlewares.httperror] INFO: Ignoring response <403 https://movie.douban.com/top250/>: HTTP status code is not handled or not allowed
+```
 #### HELP
 
 * [https://github.com/easonhan007/webdriver_guide](https://github.com/easonhan007/webdriver_guide)   
+* [https://mp.weixin.qq.com/s/WsJj_4SifI1VOwhXl844aQ](https://mp.weixin.qq.com/s/WsJj_4SifI1VOwhXl844aQ)   
 
+
+## 简单爬虫
+####  一、新建项目(scrapy startproject)
+```
+scrapy startproject mySpider # mySpider 为项目名称
+```
+#### 二、明确目标(mySpider/items.py)
+
+#### 三、制作爬虫 （spiders/itcastSpider.py）
+
+###### 1. 爬数据
+```
+scrapy genspider itcast "itcast.cn"
+```
+###### 2. 取数据
+
+#### 生成数据
+* JSON格式：`scrapy crawl itcast -o ../../teachers.json`
+* CSV格式：`scrapy crawl itcast -o ../../teachers.csv`

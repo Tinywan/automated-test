@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Scrapy settings for TinywanSpider project
+# Scrapy settings for itcastSpider project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -9,14 +9,15 @@
 #     https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://doc.scrapy.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = 'TinywanSpider'
+BOT_NAME = 'itcastSpider'
 
-SPIDER_MODULES = ['TinywanSpider.spiders']
-NEWSPIDER_MODULE = 'TinywanSpider.spiders'
+SPIDER_MODULES = ['itcastSpider.spiders']
+NEWSPIDER_MODULE = 'itcastSpider.spiders'
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'TinywanSpider (+http://www.yourdomain.com)'
+#USER_AGENT = 'itcastSpider (+http://www.yourdomain.com)'
+USER_AGENT = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_3) AppleWebKit/536.5 (KHTML, like Gecko) Chrome/19.0.1084.54 Safari/536.5'
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
@@ -47,13 +48,13 @@ ROBOTSTXT_OBEY = True
 # Enable or disable spider middlewares
 # See https://doc.scrapy.org/en/latest/topics/spider-middleware.html
 #SPIDER_MIDDLEWARES = {
-#    'TinywanSpider.middlewares.TinywanspiderSpiderMiddleware': 543,
+#    'itcastSpider.middlewares.ItcastspiderSpiderMiddleware': 543,
 #}
 
 # Enable or disable downloader middlewares
 # See https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
 #DOWNLOADER_MIDDLEWARES = {
-#    'TinywanSpider.middlewares.TinywanspiderDownloaderMiddleware': 543,
+#    'itcastSpider.middlewares.ItcastspiderDownloaderMiddleware': 543,
 #}
 
 # Enable or disable extensions
@@ -65,7 +66,7 @@ ROBOTSTXT_OBEY = True
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 #ITEM_PIPELINES = {
-#    'TinywanSpider.pipelines.TinywanspiderPipeline': 300,
+#    'itcastSpider.pipelines.ItcastspiderPipeline': 300,
 #}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
