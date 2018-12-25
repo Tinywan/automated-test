@@ -1,5 +1,3 @@
-[![Build Status](https://travis-ci.org/Tinywan/automated-test.svg?branch=master)](https://travis-ci.org/Tinywan/automated-test)
-
 ## 浏览器版本映射关系  
 
 |Chromedriver 版本|支持的Chrome版本|
