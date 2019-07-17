@@ -11,7 +11,7 @@ from PIL import Image, ImageEnhance
 import pytesseract
 from imp import reload
 
-url = 'https://testpay.hongnaga.com/admin/login'
+url = 'http://erp.frp.tinywan.top/'
 screenImg = "D:/Git/automated-test/images/11001.png"
 
 if 'HTTP_PROXY'in os.environ:

@@ -17,7 +17,7 @@ driver = webdriver.Chrome()
 
 # -------restart open
 time.sleep(3)
-url = 'https://pay.hongnaga.com/?debug=true'
+url = 'http://erp.frp.tinywan.top/'
 print("now access %s" % (url))
 driver.get(url)
 
